@@ -25,6 +25,15 @@ nav ul {
     list-style-type: none;
 }
 
+nav img {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    height: 11vh;
+    border: 2px solid black;
+    border-bottom-left-radius:25px ;
+
+}
 
 
 nav ul li a {
@@ -58,9 +67,13 @@ nav::after {
         height: 100vh;
         } 
 
+    .col{
+        padding: 40px;
+    }
 
-
-
+    .col img{
+        float: right;
+    }
 
 
 
@@ -76,7 +89,7 @@ nav::after {
 ::-webkit-scrollbar-track {
     background-image: linear-gradient(red -20%, black 60%);
     box-shadow: inset 0 0 2.5px 2px #222222 ;}
-    
+
 ::-webkit-scrollbar-thumb {background-image: linear-gradient(rgb(37, 36, 36), rgb(82, 82, 82));
         border-radius:25px;
         box-shadow: inset 0 0 2.5px 2px #ffffffd7;}
