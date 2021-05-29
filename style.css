@@ -7,6 +7,8 @@
 body {
 height: 200vh;
 background-color: rgb(53, 53, 53);
+margin: 0;
+padding: 0;
 }
 
 nav {
@@ -50,17 +52,11 @@ nav::after {
     clear: both;
     display: table;}
 
-.tartalom {
-
-background-color: black;
-
-
-width: 100%;
-height: 100vh;
-
-
-
-}
+    #tartalom {
+        background-color: black;
+        width: 100%;
+        height: 100vh;
+        } 
 
 
 
