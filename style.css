@@ -125,6 +125,36 @@ nav::after {
     float: right;
 }
 
+#white {
+    background-color: white;
+}
+
+#elso, #masodik, #harmadik {
+    color: black;
+
+}
+
+p {
+    font-weight: bold;
+    font-size: large;
+}
+
+#gomb  {
+    font-size: 2.5vw;
+    color: white;
+    background-color: green;
+    padding: 5px;
+    border-radius: 25px;
+    border: 4px solid black;
+
+}
+
+#gomb:hover {
+    padding: 3px;
+    color: rgb(238, 255, 0);
+    transition: 0.3s;
+    font-weight: bold;
+}
 
 
 
