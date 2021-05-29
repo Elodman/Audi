@@ -5,10 +5,11 @@
 
 
 body {
+overflow-x:hidden ;
 height: 200vh;
 background-color: rgb(53, 53, 53);
 margin: 0;
-padding: 0;
+padding: 0px;
 }
 
 nav {
@@ -67,6 +68,8 @@ nav::after {
         width: 100%;
         height: 100vh;
         border-bottom: 3px groove white;
+        color: rgb(255, 255, 255);
+        text-align: center;
         } 
 
 #video {
@@ -125,8 +128,13 @@ nav::after {
     float: right;
 }
 
+#horch {
+    height: 300px;
+}
+
 #white {
     background-color: white;
+    border-bottom: 4px groove black;
 }
 
 #elso, #masodik, #harmadik {
@@ -157,7 +165,94 @@ p {
 }
 
 
+.row img:hover {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 25px;
+    transition: 0.5s;
+}
 
+.question{
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .answers {
+    margin-bottom: 20px;
+    text-align: left;
+    display: inline-block;
+  }
+  .answers label{
+    display: block;
+    margin-bottom: 10px;
+  }
+  button{
+    font-family: 'Work Sans', sans-serif;
+      font-size: 22px;
+      background-color: #279;
+      color: #fff;
+      border: 0px;
+      border-radius: 3px;
+      padding: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+
+  }
+
+  button:hover{
+    background-color: #38a;
+}
+
+
+
+
+
+.slide{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 0px;
+  text-align: center;
+  background-color: rgb(53, 53, 53);
+}
+
+#results{
+  text-align: center;
+}
+
+#submit{
+  top: 40%;
+  left: 57%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#previous{
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#next{
+  top: 40%;
+  left: 41%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
 
 
 
