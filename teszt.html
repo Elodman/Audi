@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="car.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Audi</title>
+</head>
+
+<body class="p-0 mb-2 bg-dark text-white">
+    <nav>
+        <ul>
+            <li><a onmousedown="hang.play()" href="fooldal.html">Főoldal</a></li>
+            <li><a onmousedown="hang.play()" href="info.html">Infó</a></li>
+            <li><a onmousedown="hang.play()" href="kepek.html">Képek</a></li>
+            <li><a onmousedown="hang.play()" href="teszt.html">Teszt</a></li>
+        </ul>
+        <img src="Audi-logo.jpeg" alt="audilogo">
+    </nav>
+
+    <div id="white" class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <form id="elso" name="elsotipus">
+                    <p>Milyen nemzetiségű vállalat az Audi?</p>
+                    <input type="checkbox" id="1" name="vehicle1" value="Bike">
+                    <label for="vehicle1">Francia</label><br>
+                    <input type="checkbox" id="2" name="vehicle2" value="Car">
+                    <label for="vehicle2">Olasz</label><br>
+                    <input type="checkbox" id="3" name="vehicle3" value="Boat">
+                    <label for="vehicle3">Német</label><br><br>
+
+                    <p>Hol található az Audi székhelye?</p>
+                    <input type="checkbox" id="4" name="vehicle1" value="Bike">
+                    <label for="vehicle1">Milánó</label><br>
+                    <input type="checkbox" id="5" name="vehicle2" value="Car">
+                    <label for="vehicle2">Ingolstadt</label><br>
+                    <input type="checkbox" id="6" name="vehicle3" value="Boat">
+                    <label for="vehicle3">Párizs</label><br><br>
+
+                    <p>Mikor alapították a vállalatot?</p>
+                    <input type="checkbox" id="7" name="vehicle1" value="Bike">
+                    <label for="vehicle1">1932</label><br>
+                    <input type="checkbox" id="8" name="vehicle2" value="Car">
+                    <label for="vehicle2">1964</label><br>
+                    <input type="checkbox" id="9" name="vehicle3" value="Boat">
+                    <label for="vehicle3">1985</label><br><br>
+
+                  </form>
+                  
+                <hr>
+
+                <form id="masodik" name="masodiktipus">
+
+
+                    <p>Miután megalakult az Audi AG hanyadik autógyártó vállalat lett Németországban?</p>
+                    <select id="a">
+                        <option value="">...</option>
+                        <option id="10" value="">1</option>
+                        <option id="11" value="">2</option>
+                        <option id="12" value="">3</option>
+                    </select>
+
+
+                    <p> Hol található az Audi Hungaria Zrt. ?</p>
+                    <select id="b">
+                        <option id="" value="">...</option>
+                        <option id="13" value="">Budapesten</option>
+                        <option id="14" value="">Győrben</option>
+                        <option id="15" value="">Pécsett</option>
+                    </select>
+
+                    <p>Hány lóerős a Wanderer W 25 K Roadster</p>
+                    <select id="c">
+                        <option value="">...</option>
+                        <option id="16" value="">50 LE</option>
+                        <option id="17" value="">70 LE</option>
+                        <option id="18" value="">85 LE</option>
+                    </select><br><br>
+
+
+
+                </form>
+
+                <hr>
+
+                <form id="harmadik" name="harmadiktipus">
+
+                    <p>Hány karika van az Audi logójában?</p>
+                    <input name="valasz" type="radio" id="19">
+                    <span id="szamok"> 10 </span> <br>
+                    <input name="valasz" type="radio" id="20">
+                    <span id="szamok"> 8 </span> <br>
+                    <input name="valasz" type="radio" id="21">
+                    <span id="szamok"> 4 </span> <br>
+
+                    <p>Hány ralifutamon indultaz Audi 1979-ben?</p>
+                    <input name="valasz1" type="radio" id="22">
+                    <span id="szamok"> 13 </span> <br>
+                    <input name="valasz1" type="radio" id="23">
+                    <span id="szamok"> 10 </span> <br>
+                    <input name="valasz1" type="radio" id="24">
+                    <span id="szamok"> 7 </span> <br>
+
+                    <p>Hány hengeres motorral volt felszerelve a Horch 670 Sport Cabriolet?</p>
+                    <input name="valasz2" type="radio" id="25">
+                    <span id="szamok"> 14 </span> <br>
+                    <input name="valasz2" type="radio" id="26">
+                    <span id="szamok"> 10 </span> <br>
+                    <input name="valasz2" type="radio" id="27">
+                    <span id="szamok" id="27" > 12 </span> <br>
+                    <br><br>
+
+                </form>
+
+                <input onclick="ertekel()" id="gomb" type="button" value="Befejez!">
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+
+<script>
+
+    function ertekel() {
+        
+    }
+
+
+    // function ertekel() {
+    //     if(document.getElementById("21", "23", "27").checked){
+    //         alert("dikaz");
+    //     }else {
+    //         alert("nemjo");
+    //     }
+    // }
+
+    var hang = new Audio();
+    hang.src = "click.mp3";
+
+
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+</html>
