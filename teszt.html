@@ -22,112 +22,16 @@
         </ul>
         <img src="Audi-logo.jpeg" alt="audilogo">
     </nav>
-
-    <div id="white" class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <form id="elso" name="elsotipus">
-                    <p>Milyen nemzetiségű vállalat az Audi?</p>
-                    <input type="checkbox" id="1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">Francia</label><br>
-                    <input type="checkbox" id="2" name="vehicle2" value="Car">
-                    <label for="vehicle2">Olasz</label><br>
-                    <input type="checkbox" id="3" name="vehicle3" value="Boat">
-                    <label for="vehicle3">Német</label><br><br>
-
-                    <p>Hol található az Audi székhelye?</p>
-                    <input type="checkbox" id="4" name="vehicle1" value="Bike">
-                    <label for="vehicle1">Milánó</label><br>
-                    <input type="checkbox" id="5" name="vehicle2" value="Car">
-                    <label for="vehicle2">Ingolstadt</label><br>
-                    <input type="checkbox" id="6" name="vehicle3" value="Boat">
-                    <label for="vehicle3">Párizs</label><br><br>
-
-                    <p>Mikor alapították a vállalatot?</p>
-                    <input type="checkbox" id="7" name="vehicle1" value="Bike">
-                    <label for="vehicle1">1932</label><br>
-                    <input type="checkbox" id="8" name="vehicle2" value="Car">
-                    <label for="vehicle2">1964</label><br>
-                    <input type="checkbox" id="9" name="vehicle3" value="Boat">
-                    <label for="vehicle3">1985</label><br><br>
-
-                  </form>
-                  
-                <hr>
-
-                <form id="masodik" name="masodiktipus">
-
-
-                    <p>Miután megalakult az Audi AG hanyadik autógyártó vállalat lett Németországban?</p>
-                    <select id="a">
-                        <option value="">...</option>
-                        <option id="10" value="">1</option>
-                        <option id="11" value="">2</option>
-                        <option id="12" value="">3</option>
-                    </select>
-
-
-                    <p> Hol található az Audi Hungaria Zrt. ?</p>
-                    <select id="b">
-                        <option id="" value="">...</option>
-                        <option id="13" value="">Budapesten</option>
-                        <option id="14" value="">Győrben</option>
-                        <option id="15" value="">Pécsett</option>
-                    </select>
-
-                    <p>Hány lóerős a Wanderer W 25 K Roadster</p>
-                    <select id="c">
-                        <option value="">...</option>
-                        <option id="16" value="">50 LE</option>
-                        <option id="17" value="">70 LE</option>
-                        <option id="18" value="">85 LE</option>
-                    </select><br><br>
-
-
-
-                </form>
-
-                <hr>
-
-                <form id="harmadik" name="harmadiktipus">
-
-                    <p>Hány karika van az Audi logójában?</p>
-                    <input name="valasz" type="radio" id="19">
-                    <span id="szamok"> 10 </span> <br>
-                    <input name="valasz" type="radio" id="20">
-                    <span id="szamok"> 8 </span> <br>
-                    <input name="valasz" type="radio" id="21">
-                    <span id="szamok"> 4 </span> <br>
-
-                    <p>Hány ralifutamon indultaz Audi 1979-ben?</p>
-                    <input name="valasz1" type="radio" id="22">
-                    <span id="szamok"> 13 </span> <br>
-                    <input name="valasz1" type="radio" id="23">
-                    <span id="szamok"> 10 </span> <br>
-                    <input name="valasz1" type="radio" id="24">
-                    <span id="szamok"> 7 </span> <br>
-
-                    <p>Hány hengeres motorral volt felszerelve a Horch 670 Sport Cabriolet?</p>
-                    <input name="valasz2" type="radio" id="25">
-                    <span id="szamok"> 14 </span> <br>
-                    <input name="valasz2" type="radio" id="26">
-                    <span id="szamok"> 10 </span> <br>
-                    <input name="valasz2" type="radio" id="27">
-                    <span id="szamok" id="27" > 12 </span> <br>
-                    <br><br>
-
-                </form>
-
-                <input onclick="ertekel()" id="gomb" type="button" value="Befejez!">
-            </div>
-
-
+    <div class="quiz-container">
+        <div id="quiz" class="container-fluid" style="background-color: white;">
         </div>
-
-
-
     </div>
+    <button id="previous">Előző kérdés</button>
+    <button id="next">Következő kérdés</button>
 
+    <button id="submit">Beadás</button>
+
+    <div id="results"></div>
 
 
 
@@ -137,18 +41,168 @@
 
 <script>
 
-    function ertekel() {
-        
+(function(){
+  function buildQuiz(){
+    const output = [];
+
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+        const answers = [];
+
+        for(letter in currentQuestion.answers){
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    let numCorrect = 0;
+
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      if(userAnswer === currentQuestion.correctAnswer){
+        numCorrect++;
+
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      else{
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+    resultsContainer.innerHTML = `Gratulálok! ${numCorrect} jó választ adtál meg a ${myQuestions.length}-ból`;
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+  {
+    question: "Hány karika van az Audi logójában?",
+    answers: {
+      a: "10",
+      b: "8",
+      c: "4"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "Hány ralifutamon indult az Audi 1979-ben?",
+    answers: {
+      a: "13",
+      b: "10",
+      c: "7"
+    },
+    correctAnswer: "b"
+  },
+  {
+    question: "Hány hengeres motorral volt felszerelve a Horch 670 Sport Cabriolet?",
+    answers: {
+      a: "14",
+      b: "10",
+      c: "12",
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "Hol található az Audi Hungaria Zrt.?",
+    answers: {
+      a: "Budapesten",
+      b: "Győrben",
+      c: "Pécsett",
+    },
+    correctAnswer: "b"
+  },
+  {
+    question: "Hány lóerős a Wanderer W 25 K Roadster?",
+    answers: {
+      a: "50 LE",
+      b: "70 LE",
+      c: "85 LE",
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "Hol található az Audi székhelye?",
+    answers: {
+      a: "Milánó",
+      b: "Ingolstadt",
+      c: "Párizs",
+    },
+    correctAnswer: "b"
+  }
+  ];
+
+  buildQuiz();
+
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("next");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  showSlide(currentSlide);
+
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+
+    if($numCorrect <= 2){
+        alert("szar");
+    }else{
+        alert("jo")
     }
 
 
-    // function ertekel() {
-    //     if(document.getElementById("21", "23", "27").checked){
-    //         alert("dikaz");
-    //     }else {
-    //         alert("nemjo");
-    //     }
-    // }
 
     var hang = new Audio();
     hang.src = "click.mp3";
