@@ -91,7 +91,7 @@
         answerContainers[questionNumber].style.color = 'red';
       }
     });
-    resultsContainer.innerHTML = `Gratulálok! ${numCorrect} jó választ adtál meg a ${myQuestions.length}-ból`;
+    resultsContainer.innerHTML = `Gratulálok! ${numCorrect} jó választ adtál meg a ${myQuestions.length}-ból!`;
   }
 
   function showSlide(n) {
@@ -179,6 +179,33 @@
       c: "Párizs",
     },
     correctAnswer: "b"
+  },
+  {
+    question: "Milyen nemzetiségű vállalat az Audi?",
+    answers: {
+      a: "Francia",
+      b: "Olasz",
+      c: "Német",
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "Mikor alapították a vállalatot?",
+    answers: {
+      a: "1932",
+      b: "1964",
+      c: "1985",
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: "Miután megalakult az Audi AG hanyadik autógyártó vállalat lett Németországban?",
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+    },
+    correctAnswer: "b"
   }
   ];
 
@@ -196,11 +223,6 @@
   nextButton.addEventListener("click", showNextSlide);
 })();
 
-    if($numCorrect <= 2){
-        alert("szar");
-    }else{
-        alert("jo")
-    }
 
 
 
